@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: qtws
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: qtws
+    app.kubernetes.io/part-of: byoc-app-lmqs
+  name: qtws
+spec:
+  rules:
+  - host: qtws-byoc-jqhp-tenant.apps.d4847cdcb90e75a097aa.hypershift.aws-2.ci.openshift.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: qtws
+            port:
+              number: 8081
+        path: /
+        pathType: ImplementationSpecific
+status:
+  loadBalancer: {}
